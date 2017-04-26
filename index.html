@@ -2,7 +2,10 @@
 <html>
 <head>
 	<title>Vue Project</title>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
+
 <body>
 	<!-- Computer Properties -->
 	<div id="app" class="container">
@@ -19,7 +22,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<label>Entire Meal:</label>
-			<input type="text" class="form-control" v-model="fullmeal" />
+			<input type="text" placeholder="Sandwich"class="form-control" v-model="fullmeal" />
 		</div>
 	</div>
 
@@ -27,13 +30,13 @@
 		<div class="col-md-6">
 			<div class="form-group">
 				<label>Meal:</label>
-				<input type="text" class="form-control" v-model="first" />
+				<input type="text" placeholder="Breakfast" class="form-control" v-model="first" />
 			</div>	
 		</div>
 		<div id="lastname">
 			<div class="form-group">
 				<label>Dessert:</label>
-				<input type="text" class="form-control" v-model="last" />
+				<input type="text" placeholder="Cake" class="form-control" v-model="last" />
 			</div>	
 		</div>
 </div>		
