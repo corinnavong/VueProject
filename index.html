@@ -2,35 +2,62 @@
 <html>
 <head>
 	<title>Vue Project</title>
-
-<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-
-<form id="main" v-cloak>
-
-	<h1>Services</h1>
-
-	<ul>
-		<!-- Loop through the services array, assign a click handler, and set or
-			 remove the "active" css class if needed -->
-		<li v-for="service in services" v-on:click="toggleActive(service)" v-bind:class="{ 'active': service.active}">
-			<!-- Display the name and price for every entry in the array .
-                Vue.js has a built in currency filter for formatting the price -->
-			{{service.name}} <span>{{service.price | currency}}</span>
-		</li>
-	</ul>
-
-	<div class="total">
-		<!-- Calculate the total price of all chosen services. Format it as currency. -->
-		Total: <span>{{total() | currency}}</span>
+	<!-- Called the Getter Method for Computer Properties -->
+	<div id="app" class="container">
+	<div class="row">
+		<div class="col-md-12 text-center">
+		<h1>I want to eat {{fullmeal}}!</h1>
+		<ul class="text-left">
+			<li>Meal: {{first}}</li>
+			<li>Dessert: {{last}}</li>
+		</ul>	
+		</div>
 	</div>
 
-</form>
+	<div class="row">
+		<div class="col-md-12">
+			<label>Entire Meal:</label>
+			<input type="text" class="form-control" v-model="fullmeal" />
+		</div>
+	</div>
 
-<script type="text/javascript" src="script.js"></script>
-<script src="https://unpkg.com/vue"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.5/vue.min.js"></script>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="form-group">
+				<label>Meal:</label>
+				<input type="text" class="form-control" v-model="first" />
+			</div>	
+		</div>
+		<div id="lastname">
+			<div class="form-group">
+				<label>Dessert:</label>
+				<input type="text" class="form-control" v-model="last" />
+			</div>	
+		</div>
+	</div>		
+
+
+
 
 </body>
+
+<script src="https://unpkg.com/vue@2.2.6"></script>
+
+<script>
+	var app = new Vue({
+		el: '#app',
+		data: {
+			first: '',
+			last: ''
+		},
+	computed: {
+		fullmeal: function() {
+			return this.first + " and " + this.last
+		}
+	}	
+	})
+
+</script>
 </html>
