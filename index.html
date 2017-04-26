@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<meta charset="utf-8">
 <html>
 <head>
 	<title>Vue Project</title>
@@ -8,12 +9,12 @@
 
 <body>
 	<!-- Computer Properties -->
-	<div id="app" class="container">
+<div id="app1" class="container">
 	<div class="row">
 		<div class="col-md-12 text-center">
 		<h1>I want to eat {{fullmeal}}!</h1>
 		<ul class="text-left">
-			<li>Meal: {{first}}</li>
+			<li>Entreé: {{first}}</li>
 			<li>Dessert: {{last}}</li>
 		</ul>	
 		</div>
@@ -21,43 +22,42 @@
 
 	<div class="row">
 		<div class="col-md-12">
-			<label>Entire Meal:</label>
-			<input type="text" placeholder="Sandwich"class="form-control" v-model="fullmeal" />
+			<h3>You ate: {{first}} and {{last}}</h3>
 		</div>
 	</div>
 
 	<div class="row">
 		<div class="col-md-6">
 			<div class="form-group">
-				<label>Meal:</label>
-				<input type="text" placeholder="Breakfast" class="form-control" v-model="first" />
+				<label>Entreé:</label>
+				<input type="text" v-model="first" placeholder="food item" value="food item" />
 			</div>	
 		</div>
 		<div id="lastname">
 			<div class="form-group">
 				<label>Dessert:</label>
-				<input type="text" placeholder="Cake" class="form-control" v-model="last" />
+				<input type="text" v-model="last" placeholder="dessert item" value="dessert item" />
 			</div>	
 		</div>
-</div>		
+	</div>		
 
 	<hr />	
 
 <div id="app2" class="container">
+	<div class="row">
+		<div id="buttons">
+			<button v-on:click="meals +=1">Add meals</button>
+			<button v-on:click="meals -=1">Decrease meals</button>
+		</div>	
+	</div>
+
 	<div class="row">
 		<div class="col-md-12 text-center">
 			<h1>I am <strong>{{level}}</strong></h1>
 			<h3>Number of meals: {{meals}}</h3>
 		</div>
 	</div>
-	<div class="row">
-		<div id="buttons">
-			<button type="button" v-on:click="addMeals">Add meals</button>
-			<button type="button" v-on:click="decreaseMeals">Decrease meals</button>
-		</div>	
-	</div>			
-		
-</div>		
+</div>
 
 
 
@@ -65,46 +65,5 @@
 </body>
 
 <script src="https://unpkg.com/vue@2.2.6"></script>
-
-<script>
-	var app = new Vue({
-		el: '#app',
-		data: {
-			first: '',
-			last: ''
-		},
-	computed: {
-		fullmeal: function() {
-			return this.first + " and " + this.last
-		}
-	},
-	
-		el: '#app2',
-		data: {
-			meals: 1
-		},
-		methods: {
-			addMeals: function() {
-				return this.meals += 1
-			},
-			decreaseMeals: function() {
-				return this.meals -= 1
-			}
-		},
-		computed: {
-			level: function() {
-				if (this.meals >= 10) {
-					return "Bloated"
-				} else if (this.meals >= 5) {
-					return "Full"
-				} else if (this.meals >= 0) {
-					return "Hungry"
-				} else {
-					return "Famished"
-				}
-			}
-		}	
-	})
-
-</script>
+<script src="app1.js"></script>
 </html>
